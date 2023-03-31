@@ -1,4 +1,4 @@
-from src.database.connect import subscribers
+from src.database.mock_data import subscribers
 
 
 class FindSubscribersUseCase:

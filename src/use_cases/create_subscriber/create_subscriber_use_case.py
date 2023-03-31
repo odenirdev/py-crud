@@ -1,6 +1,6 @@
 from src.interfaces.dtos.create_subscriber_dto import CreateSubscriberDto
 from src.interfaces.create_subscriber_response import CreateSubscriberResponse
-from src.database.connect import subscribers
+from src.database.mock_data import subscribers
 
 from uuid import uuid4
 

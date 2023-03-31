@@ -1,6 +1,6 @@
 from fastapi import HTTPException
 
-from src.database.connect import subscribers
+from src.database.mock_data import subscribers
 
 
 class DeleteSubscriberUseCase:

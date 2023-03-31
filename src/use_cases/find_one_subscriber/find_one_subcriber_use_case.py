@@ -2,7 +2,7 @@ from fastapi import HTTPException
 
 from src.interfaces.find_one_subscriber_response import FindOneSubscriberResponse
 
-from src.database.connect import subscribers
+from src.database.mock_data import subscribers
 
 
 class FindOneSubcriberUseCase:

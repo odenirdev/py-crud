@@ -3,7 +3,7 @@ from fastapi import HTTPException
 from src.interfaces.update_subscriber_response import UpdateSubscriberResponse
 from src.interfaces.dtos.update_subscriber_dto import UpdateSubscriberDto
 
-from src.database.connect import subscribers
+from src.database.mock_data import subscribers
 
 
 class UpdateSubscriberUseCase:
