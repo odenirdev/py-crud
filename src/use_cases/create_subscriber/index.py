@@ -1,0 +1,8 @@
+from src.use_cases.create_subscriber.create_subscriber_use_case import CreateSubscriberUseCase
+from src.use_cases.create_subscriber.create_subscriber_controller import CreateSubscriberController
+
+create_subscriber_use_case = CreateSubscriberUseCase()
+
+create_subscriber_controller = CreateSubscriberController(
+    create_subscriber_use_case
+)
