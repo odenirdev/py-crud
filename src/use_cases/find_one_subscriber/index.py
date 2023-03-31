@@ -1,0 +1,9 @@
+from src.use_cases.find_one_subscriber.find_one_subcriber_controller import FindOneSubscriberController
+from src.use_cases.find_one_subscriber.find_one_subcriber_use_case import FindOneSubcriberUseCase
+
+
+find_one_subscriber_use_case = FindOneSubcriberUseCase()
+
+find_one_subscriber_controller = FindOneSubscriberController(
+    find_one_subscriber_use_case
+)
