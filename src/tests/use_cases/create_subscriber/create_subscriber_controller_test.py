@@ -1,4 +1,5 @@
 from src.interfaces.dtos.create_subscriber_dto import CreateSubscriberDto
+
 from src.use_cases.create_subscriber.create_subscriber_controller import CreateSubscriberController
 
 

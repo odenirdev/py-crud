@@ -1,9 +1,11 @@
 import uvicorn
 from fastapi import FastAPI
 
+
 from src.interfaces.dtos.update_subscriber_dto import UpdateSubscriberDto
 from src.interfaces.dtos.create_subscriber_dto import CreateSubscriberDto
 from src.interfaces.create_subscriber_response import CreateSubscriberResponse
+from src.interfaces.find_one_subscriber_response import FindOneSubscriberResponse
 from src.interfaces.find_subscriber_response import FindSubscriberResponse
 from src.interfaces.update_subscriber_response import UpdateSubscriberResponse
 
@@ -28,7 +30,7 @@ def post_subscribers(create_subscriber_dto: CreateSubscriberDto) -> CreateSubscr
 
 
 @app.get('/subscriber/{subscriber_id}')
-def get_find_one_subscriber(subscriber_id: str) -> CreateSubscriberResponse:
+def get_find_one_subscriber(subscriber_id: str) -> FindOneSubscriberResponse:
     return find_one_subscriber_controller.execute(subscriber_id)
 
 

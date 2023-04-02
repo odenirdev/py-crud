@@ -3,8 +3,9 @@ from src.interfaces.dtos.create_subscriber_dto import CreateSubscriberDto
 from src.use_cases.create_subscriber.create_subscriber_use_case import CreateSubscriberUseCase
 
 
-def test_create_subscriber_successfully():
-    create_subscriber_use_case = CreateSubscriberUseCase()
+def test_create_subscriber_successfully(subscribers_repository_mock):
+    create_subscriber_use_case = CreateSubscriberUseCase(
+        subscribers_repository_mock)
 
     new_subscriber = CreateSubscriberDto(
         name="John Doe",

@@ -1,10 +1,11 @@
-from src.database.mock_data import subscribers
+from src.database.repositories.subscriber_repository import SubscriberRepository
+
+from src.interfaces.find_subscriber_response import FindSubscriberResponse
 
 
 class FindSubscribersUseCase:
-    # def __init__(self, subscribers_repository: SubscribersRepository):
-    #     self.find_subscribers_repository = find_subscribers_repository
+    def __init__(self, subscribers_repository: SubscriberRepository):
+        self.subscribers_repository = subscribers_repository
 
-    def execute(self):
-        return subscribers
-        # return self.find_subscribers_repository.find_all()
+    def execute(self) -> list[FindSubscriberResponse]:
+        return self.subscribers_repository.find()

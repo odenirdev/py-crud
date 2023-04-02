@@ -8,3 +8,4 @@ class FindSubscriberResponse(BaseModel):
     occupation: str
     date_of_birth: str
     description: str
+    created_at: str

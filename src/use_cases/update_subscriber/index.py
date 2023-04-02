@@ -1,8 +1,12 @@
 from src.use_cases.update_subscriber.update_subscriber_controller import UpdateSubscriberController
 from src.use_cases.update_subscriber.update_subscriber_use_case import UpdateSubscriberUseCase
 
+from src.database.repositories.implementations.postgres_subscriber_repository import PostgresSubscriberRepository
+
+postgres_subscriber_repository = PostgresSubscriberRepository()
 
 update_subscriber_use_case = UpdateSubscriberUseCase(
+    postgres_subscriber_repository
 )
 
 update_subscriber_controller = UpdateSubscriberController(

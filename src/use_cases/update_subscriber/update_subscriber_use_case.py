@@ -1,5 +1,8 @@
 from fastapi import HTTPException
 
+from src.database.repositories.subscriber_repository import SubscriberRepository
+from src.entities.subscriber import Subscriber
+
 from src.interfaces.update_subscriber_response import UpdateSubscriberResponse
 from src.interfaces.dtos.update_subscriber_dto import UpdateSubscriberDto
 
@@ -7,36 +10,36 @@ from src.database.mock_data import subscribers
 
 
 class UpdateSubscriberUseCase:
-    # def __init__(self, find_one_subscriber_use_case: FindOneSubcriberUseCase) -> None:
-    #     self.find_one_subscriber_use_case = find_one_subscriber_use_case
-    # update_subscriber_repository: UpdateSubscriberRepository
-    # self.update_subscriber_repository = update_subscriber_repository
+    def __init__(self, subscribers_repository: SubscriberRepository):
+        self.subscribers_repository = subscribers_repository
+        #     self.find_one_subscriber_use_case = find_one_subscriber_use_case
+        # update_subscriber_repository: UpdateSubscriberRepository
+        # self.update_subscriber_repository = update_subscriber_repository
 
     def execute(self, subscriber_id: str, update_subscriber_dto: UpdateSubscriberDto) -> UpdateSubscriberResponse:
-        # subscriber = self.find_one_subscriber_use_case.execute(subscriber_id)
-        subscriber_index = None
-        for i in range(len(subscribers)):
-            if subscribers[i].id == subscriber_id:
-                subscriber_index = i
-                break
+        update_subscriber = self.subscribers_repository.find_one(subscriber_id)
 
-        if subscriber_index is None:
-            raise HTTPException(status_code=400, detail='Subscriber not found')
+        if update_subscriber_dto.name:
+            update_subscriber.name = update_subscriber_dto.name
 
-        if update_subscriber_dto.name is not None:
-            subscribers[subscriber_index].name = update_subscriber_dto.name
+        if update_subscriber_dto.email:
+            update_subscriber.email = update_subscriber_dto.email
 
-        if update_subscriber_dto.email is not None:
-            subscribers[subscriber_index].email = update_subscriber_dto.email
+        if update_subscriber_dto.occupation:
+            update_subscriber.occupation = update_subscriber_dto.occupation
 
-        if update_subscriber_dto.occupation is not None:
-            subscribers[subscriber_index].occupation = update_subscriber_dto.occupation
+        if update_subscriber_dto.date_of_birth:
+            update_subscriber.date_of_birth = update_subscriber_dto.date_of_birth
 
-        if update_subscriber_dto.date_of_birth is not None:
-            subscribers[subscriber_index].date_of_birth = update_subscriber_dto.date_of_birth
+        if update_subscriber_dto.description:
+            update_subscriber.description = update_subscriber_dto.description
 
-        if update_subscriber_dto.description is not None:
-            subscribers[subscriber_index].description = update_subscriber_dto.description
+        subscriber = Subscriber(
+            id=subscriber_id,
+            name=update_subscriber.name,
+            email=update_subscriber.email,
+            occupation=update_subscriber.occupation,
+            date_of_birth=update_subscriber.date_of_birth,
+            description=update_subscriber.description)
 
-        return subscribers[subscriber_index]
-        # self.update_subscriber_repository.update_subscriber(subscriber_id, name, email)
+        return self.subscribers_repository.update(subscriber_id, subscriber)

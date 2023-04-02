@@ -8,6 +8,7 @@ subscribers = [
         email="valentina_melo@mls.com.br",
         occupation="Médica",
         date_of_birth="1994-01-23",
-        description="lorem"
+        description="lorem",
+        created_at="2022-04-02T12:00"
     )
 ]
