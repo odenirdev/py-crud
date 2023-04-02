@@ -1,3 +1,5 @@
+from fastapi import HTTPException
+
 from src.database.repositories.subscriber_repository import SubscriberRepository
 
 from src.interfaces.create_subscriber_response import CreateSubscriberResponse
