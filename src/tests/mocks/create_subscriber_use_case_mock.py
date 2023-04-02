@@ -1,3 +1,4 @@
+import pytest
 from src.interfaces.dtos.create_subscriber_dto import CreateSubscriberDto
 from src.interfaces.create_subscriber_response import CreateSubscriberResponse
 from src.database.mock_data import subscribers
@@ -18,3 +19,9 @@ class CreateSubscriberUseCase:
         subscribers.append(created_subscriber)
 
         return created_subscriber
+
+
+@pytest.fixture
+def create_subscriber_use_case_mock():
+    create_subscriber_use_case = CreateSubscriberUseCase()
+    return create_subscriber_use_case

@@ -1,4 +1,5 @@
 from fastapi import HTTPException
+import pytest
 
 from src.database.mock_data import subscribers
 
@@ -15,3 +16,9 @@ class DeleteSubscriberUseCase:
             raise HTTPException(status_code=400, detail='Subscriber not found')
 
         subscribers.pop(subscriber_index)
+
+
+@pytest.fixture
+def delete_subscriber_use_case_mock():
+    delete_subscriber_use_case = DeleteSubscriberUseCase()
+    return delete_subscriber_use_case

@@ -1,3 +1,4 @@
+import pytest
 from fastapi import HTTPException
 
 from src.interfaces.find_one_subscriber_response import FindOneSubscriberResponse
@@ -21,3 +22,9 @@ class FindOneSubcriberUseCase:
                     description=subscriber.description)
 
         raise HTTPException(status_code=400, detail="Subscriber not found")
+
+
+@ pytest.fixture
+def find_one_subscriber_use_case_mock():
+    find_one_subscriber_use_case = FindOneSubcriberUseCase()
+    return find_one_subscriber_use_case

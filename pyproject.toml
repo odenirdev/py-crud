@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "bbb-subscribers"
-version = "0.1.0"
+version = "0.2.0"
 description = ""
 authors = ["Odenir Gomes <odenirdev@gmail.com>"]
 readme = "README.md"
@@ -11,6 +11,8 @@ python = "^3.11"
 fastapi = "^0.95.0"
 uvicorn = "^0.21.1"
 uuid = "^1.30"
+pytest = "^7.2.2"
+pytest-xdist = "^3.2.1"
 
 
 [build-system]

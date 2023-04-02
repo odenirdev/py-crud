@@ -1,3 +1,4 @@
+import pytest
 from fastapi import HTTPException
 
 from src.interfaces.update_subscriber_response import UpdateSubscriberResponse
@@ -7,13 +8,7 @@ from src.database.mock_data import subscribers
 
 
 class UpdateSubscriberUseCase:
-    # def __init__(self, find_one_subscriber_use_case: FindOneSubcriberUseCase) -> None:
-    #     self.find_one_subscriber_use_case = find_one_subscriber_use_case
-    # update_subscriber_repository: UpdateSubscriberRepository
-    # self.update_subscriber_repository = update_subscriber_repository
-
     def execute(self, subscriber_id: str, update_subscriber_dto: UpdateSubscriberDto) -> UpdateSubscriberResponse:
-        # subscriber = self.find_one_subscriber_use_case.execute(subscriber_id)
         subscriber_index = None
         for i in range(len(subscribers)):
             if subscribers[i].id == subscriber_id:
@@ -39,4 +34,9 @@ class UpdateSubscriberUseCase:
             subscribers[subscriber_index].description = update_subscriber_dto.description
 
         return subscribers[subscriber_index]
-        # self.update_subscriber_repository.update_subscriber(subscriber_id, name, email)
+
+
+@pytest.fixture
+def update_subscriber_use_case_mock():
+    update_subscriber_use_case = UpdateSubscriberUseCase()
+    return update_subscriber_use_case
