@@ -4,7 +4,7 @@ import datetime
 from fastapi import HTTPException
 
 
-class Subscriber:
+class SubscriberEntity:
     def __init__(self, id=None, name=None, email=None, occupation=None, date_of_birth=None, description=None, created_at=None):
         if not name:
             raise HTTPException(

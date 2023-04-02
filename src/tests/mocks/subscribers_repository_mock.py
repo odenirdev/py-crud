@@ -3,7 +3,7 @@ import pytest
 
 from src.database.repositories.subscriber_repository import SubscriberRepository
 
-from src.entities.subscriber import Subscriber
+from src.entities.subscriber_entity import SubscriberEntity
 
 from src.interfaces.create_subscriber_response import CreateSubscriberResponse
 from src.interfaces.find_one_subscriber_response import FindOneSubscriberResponse
@@ -30,7 +30,7 @@ class SubscriberRepositoryMock(SubscriberRepository):
 
         return subscribers_response
 
-    def create(self, subscriber: Subscriber) -> CreateSubscriberResponse:
+    def create(self, subscriber: SubscriberEntity) -> CreateSubscriberResponse:
         new_subscriber = CreateSubscriberResponse(
             id=subscriber.id,
             name=subscriber.name,
@@ -70,7 +70,7 @@ class SubscriberRepositoryMock(SubscriberRepository):
 
         subscribers.pop(subscriber_index)
 
-    def update(self, subscriber_id: str, subscriber: Subscriber):
+    def update(self, subscriber_id: str, subscriber: SubscriberEntity):
         for subscriber_db in subscribers:
             if subscriber_db.id == subscriber_id:
                 subscriber_db.name = subscriber.name

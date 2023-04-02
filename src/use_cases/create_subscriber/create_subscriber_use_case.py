@@ -5,7 +5,7 @@ from src.database.repositories.subscriber_repository import SubscriberRepository
 from src.interfaces.create_subscriber_response import CreateSubscriberResponse
 from src.interfaces.dtos.create_subscriber_dto import CreateSubscriberDto
 
-from src.entities.subscriber import Subscriber
+from src.entities.subscriber_entity import SubscriberEntity
 
 
 class CreateSubscriberUseCase:
@@ -13,7 +13,7 @@ class CreateSubscriberUseCase:
         self.subscriber_repository = subscriber_repository
 
     def execute(self, create_subscriber_dto: CreateSubscriberDto) -> CreateSubscriberResponse:
-        subscriber = Subscriber(
+        subscriber = SubscriberEntity(
             name=create_subscriber_dto.name,
             email=create_subscriber_dto.email,
             occupation=create_subscriber_dto.occupation,

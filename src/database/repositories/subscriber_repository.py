@@ -1,4 +1,4 @@
-from src.entities.subscriber import Subscriber
+from src.entities.subscriber_entity import SubscriberEntity
 
 from src.interfaces.create_subscriber_response import CreateSubscriberResponse
 from src.interfaces.find_one_subscriber_response import FindOneSubscriberResponse
@@ -9,7 +9,7 @@ class SubscriberRepository:
     def find(self):
         pass
 
-    def create(self, subscriber: Subscriber) -> CreateSubscriberResponse:
+    def create(self, subscriber: SubscriberEntity) -> CreateSubscriberResponse:
         pass
 
     def find_one(self, subscriber_id: str) -> FindOneSubscriberResponse:
@@ -18,5 +18,5 @@ class SubscriberRepository:
     def delete(self, subscriber_id: str):
         pass
 
-    def update(self, subscriber_id: str, subscriber: Subscriber) -> UpdateSubscriberResponse:
+    def update(self, subscriber_id: str, subscriber: SubscriberEntity) -> UpdateSubscriberResponse:
         pass

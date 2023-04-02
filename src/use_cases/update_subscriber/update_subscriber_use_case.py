@@ -1,7 +1,7 @@
 from fastapi import HTTPException
 
 from src.database.repositories.subscriber_repository import SubscriberRepository
-from src.entities.subscriber import Subscriber
+from src.entities.subscriber_entity import SubscriberEntity
 
 from src.interfaces.update_subscriber_response import UpdateSubscriberResponse
 from src.interfaces.dtos.update_subscriber_dto import UpdateSubscriberDto
@@ -34,7 +34,7 @@ class UpdateSubscriberUseCase:
         if update_subscriber_dto.description:
             update_subscriber.description = update_subscriber_dto.description
 
-        subscriber = Subscriber(
+        subscriber = SubscriberEntity(
             id=subscriber_id,
             name=update_subscriber.name,
             email=update_subscriber.email,
