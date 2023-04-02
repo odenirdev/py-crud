@@ -54,7 +54,8 @@ class SubscriberRepositoryMock(SubscriberRepository):
                     email=subscriber.email,
                     occupation=subscriber.occupation,
                     date_of_birth=subscriber.date_of_birth,
-                    description=subscriber.description)
+                    description=subscriber.description,
+                    created_at=subscriber.created_at)
 
         raise HTTPException(status_code=400, detail="Subscriber not found")
 
@@ -85,7 +86,8 @@ class SubscriberRepositoryMock(SubscriberRepository):
             email=subscriber.email,
             occupation=subscriber.occupation,
             date_of_birth=subscriber.date_of_birth,
-            description=subscriber.description
+            description=subscriber.description,
+            created_at=subscriber.created_at
         )
 
 
