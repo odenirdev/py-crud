@@ -44,4 +44,4 @@ Foi utilizado o framework FastAPI na camada de infraestrutura para implementar a
 
 O uso do FastAPI em conjunto com o Pydantic permite a geração automática de documentação Swagger e Try Out da API, tornando-a mais fácil de ser utilizada e testada. A documentação pode ser acessada por meio de um navegador web, utilizando o endereço http://localhost:8000/docs, após a inicialização do servidor. Com isso, é possível verificar as rotas disponíveis, seus parâmetros e retornos, além de realizar testes diretamente pela documentação gerada. Essa funcionalidade facilita a integração da API com outras aplicações e torna o processo de desenvolvimento mais ágil.
 
-Feito com 💚 por [Odenir Gomes](https://github.com/odenirdev)
+Criado com 💚 por [Odenir Gomes](https://github.com/odenirdev)
