@@ -21,7 +21,7 @@ poetry install
 3. Inicie a API com o comando
 
 ```bash
-uvicorn main:app --reload
+uvicorn server:app --reload
 ```
 
 ## Dependências
